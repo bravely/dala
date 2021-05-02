@@ -1,10 +1,44 @@
 {
-  
-  
   "version": 2,
-  
-  "projects": {},
-  "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  }
+  "projects": {
+    "core": {
+      "root": "packages/core",
+      "sourceRoot": "packages/core/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": { "lintFilePatterns": ["packages/core/**/*.ts"] }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/packages/core"],
+          "options": {
+            "jestConfig": "packages/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "postgresql": {
+      "root": "packages/postgresql",
+      "sourceRoot": "packages/postgresql/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": { "lintFilePatterns": ["packages/postgresql/**/*.ts"] }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/packages/postgresql"],
+          "options": {
+            "jestConfig": "packages/postgresql/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
+  "cli": { "defaultCollection": "@nrwl/workspace" }
 }

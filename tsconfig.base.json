@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@dala/core": ["packages/core/src/index.ts"],
+      "@dala/postgresql": ["packages/postgresql/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
